@@ -10,5 +10,6 @@
 </head>
 <body>
     <h1 class="text-red-100">tes tailwind laravel</h1>
+    <h2 class="text-red-500">tes</h2>
 </body>
 </html>
