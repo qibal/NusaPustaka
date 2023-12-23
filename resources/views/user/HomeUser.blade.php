@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DDE3E</title>
+
+    @vite('css/tailwind.css')
 </head>
 <body>
-    EDDE2E2E
+    <h1 class="text-red-100">tes tailwind laravel</h1>
 </body>
 </html>
