@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class fakultas extends Model
 {
-    // use HasFactory;
+     use HasFactory;
+     protected $fillable = [
+        'fakultas_id',
+        'nama_prodi',
+    ];
     public function prodi(){
         return $this->hasMany(prodi::class);
     }

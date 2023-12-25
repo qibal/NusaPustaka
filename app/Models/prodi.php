@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class prodi extends Model
 {
-    // use HasFactory;
+     use HasFactory;
+     protected $fillable = [
+        'fakultas_id',
+        'nama_prodi',
+    ];
 
     public function fakultas(){
         return $this->belongsTo(fakultas::class);

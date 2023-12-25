@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class data_peminjam extends Model
+class dataPeminjam extends Model
 {
-    // use HasFactory;
+     use HasFactory;
     public function fakultas(){
         return $this->belongsTo(fakultas::class);
     }
@@ -18,6 +18,6 @@ class data_peminjam extends Model
         return $this->belongsTo(User::class);
     }
     public function buku(){
-        return $this->hasMany(prodi::class);
+        return $this->hasMany(buku::class);
     }
 }

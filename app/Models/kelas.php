@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class kelas extends Model
 {
-    // use HasFactory;
+     use HasFactory;
+     protected $fillable = [
+        'prodi_id',
+        'kelas',
+    ];
     public function prodi(){
         return $this->belongsTo(prodi::class);
     }

@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class rakBuku extends Model
 {
-    // use HasFactory;
+     use HasFactory;
+     protected $fillable = [
+        'rak_buku',
+    ];
+
     public function rakBuku(){
         return $this->hasMany(buku::class);
     }
