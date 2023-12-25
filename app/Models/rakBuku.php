@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class rakBuku extends Model
 {
-    use HasFactory;
+    // use HasFactory;
+    public function rakBuku(){
+        return $this->hasMany(buku::class);
+    }
 }

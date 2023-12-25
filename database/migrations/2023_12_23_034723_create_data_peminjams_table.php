@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('data_peminjams', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_mahasiswa');
-            $table->string('nama_mahasiswa');
-            $table->integer('id_prodi');
-            $table->string('nama_prodi');
-            $table->integer('id_fakultas');
-            $table->string('nama_fakultas');
+            $table->integer('mahasiswa_id');
+            $table->integer('npm');
+            $table->integer('fakultas_id');
+            $table->integer('prodi_id');
+            $table->integer('kelas_id');
+            $table->integer('buku_id');
+            $table->integer('kategori_buku_id');
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian');
             $table->timestamps();

@@ -41,4 +41,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function fakultas(){
+        $this->belongsTo(fakultas::class);
+    }
+    public function prodi(){
+        $this->belongsTo(prodi::class);
+    }
+    public function kelas(){
+        $this->belongsTo(kelas::class);
+    }
 }

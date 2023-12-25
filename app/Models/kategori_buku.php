@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class kategori_buku extends Model
 {
-    use HasFactory;
+    // use HasFactory;
+    public function buku(){
+        return $this->hasMany(buku::class);
+    }
 }
