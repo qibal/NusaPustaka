@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 // admin
 use App\Http\Controllers\admin\fakultasController;
 
+// user
+use App\Http\Controllers\user\loginController;
+
 
 
 
@@ -21,3 +24,6 @@ Route::post('/fakultas-Add',[fakultasController::class,'fakultasAdd'])->name('fa
 Route::get('/fakultas-Delete/{id}',[fakultasController::class,'fakultasDelete'])->name('fakultasDelete');
 Route::get('/fakultas-Edit/{id}',[fakultasController::class,'fakultasEdit'])->name('fakultasEdit');
 Route::post('/fakultas-Update',[fakultasController::class,'fakultasUpdate'])->name('fakultasUpdate');
+
+// user login
+Route::get('/login',[loginController::class,'login'])->name('login');
