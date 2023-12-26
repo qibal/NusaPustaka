@@ -7,11 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\fakultasController;
 
 // user
-use App\Http\Controllers\user\loginController;
-
-
-
-
+use App\Http\Controllers\auth\loginController;
 
 Route::get('/', function () {
     return view('user.HomeUser');
