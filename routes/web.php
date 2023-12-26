@@ -5,10 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // admin
 use App\Http\Controllers\admin\fakultasController;
-
-
-
-
+use App\Http\Controllers\auth\loginController;
 
 Route::get('/', function () {
     return view('user.HomeUser');

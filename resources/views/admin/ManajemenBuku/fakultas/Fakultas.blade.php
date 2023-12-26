@@ -31,7 +31,7 @@
                 <td>{{ $no++ }}</td>
                 <td>{{ $fakultas->nama_fakultas }}</td>
                 <td><a href="{{ url('/fakultas-Edit/'.$fakultas->id) }}" class="text-blue-400">Edit</a></td>
-                <td><a href="{{ url('/fakultas-Delete/'.$fakultas->id) }}" class="text-red-400">Delete</a></td>
+                <td><a href="{{ url('/fakultas-Delete/'.$fakultas->id) }}" class="text-blue-400">Delete</a></td>
             </tr>
         @endforeach
     </table>
