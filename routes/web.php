@@ -2,21 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+// admin
+use App\Http\Controllers\admin\fakultasController;
+
+
+
+
 
 Route::get('/', function () {
     return view('user.HomeUser');
 });
-Route::get('/login', function () {
-    return view('user.auth.login');
-});
 
+
+//admin fakultas
+Route::get('/fakultas',[fakultasController::class,'fakultasRead'])->name('fakultasRead');
+Route::post('/fakultas-Add',[fakultasController::class,'fakultasAdd'])->name('fakultasAdd');
+Route::get('/fakultas-Delete/{id}',[fakultasController::class,'fakultasDelete'])->name('fakultasDelete');
+Route::get('/fakultas-Edit/{id}',[fakultasController::class,'fakultasEdit'])->name('fakultasEdit');
+Route::post('/fakultas-Update',[fakultasController::class,'fakultasUpdate'])->name('fakultasUpdate');

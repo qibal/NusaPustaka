@@ -19,7 +19,7 @@ class fakultas extends Model
         return $this->hasMany(buku::class);
     }
     public function dataPeminjam(){
-        return $this->hasMany(data_peminjam::class);
+        return $this->hasMany(dataPeminjam::class);
     }
 
     // tabel user adalah mahasiswa

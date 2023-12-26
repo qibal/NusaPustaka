@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->integer('fakultas_id');
             $table->string('nama_prodi');
-
             $table->timestamps();
         });
     }
