@@ -12,36 +12,57 @@ use App\Models\buku;
 
 class fakultasController extends Controller
 {
-    public function fakultasRead(){
+    public function fakultasRead()
+    {
 
-        $fakultases=fakultas::all();
+        $fakultases = fakultas::all();
 
-        return view('admin.ManajemenBuku.fakultas.Fakultas',compact('fakultases'));
+        return view('admin.ManajemenBuku.fakultas.Fakultas', compact('fakultases'));
     }
-    public function fakultasAdd(Request $request){
-        $validate=$request->validate([
-            'nama_fakultas'=>'required'
+    public function fakultasAdd(Request $request)
+    {
+        $validate = $request->validate([
+            'nama_fakultas' => 'required'
         ]);
 
-        $input=new fakultas();
-        $input->nama_fakultas=$request->nama_fakultas;
+        $input = new fakultas();
+        $input->nama_fakultas = $request->nama_fakultas;
         $input->save();
 
         if ($input) {
-            return redirect()->back()->with('success','berhasil masukan data');
+            return redirect()->back()->with('success', 'berhasil masukan data');
         }
-
     }
-    public function fakultasDelete($id){
-        $delete=fakultas::findOrFail($id);
+    public function fakultasDelete($id)
+    {
+        $delete = fakultas::findOrFail($id);
         $delete->delete();
         if ($delete) {
             # code...
-            return redirect()->back()->with('success','berhasil hapus data');
+            return redirect()->back()->with('success', 'berhasil hapus data');
+        }
+    }
+    public function fakultasEdit( $id)
+    {
+        $fakultasEdit=fakultas::find($id);
+        if ( $fakultasEdit) {
+            # code...
+            return view('admin.ManajemenBuku.fakultas.EditFakultas',compact('fakultasEdit'));
         }
 
     }
-    public function fakultasEdit($id){
+    public function fakultasUpdate(Request $request, $id)
+    {
+        $validate = $request->validate([
+            'nama_fakultas' => 'required'
+        ]);
+
+        $input = fakultas::find($id);
+        $input->nama_fakultas = $request->nama_fakultas;
+        $input->update();
+
+        if ($input) {
+            return redirect('/fakultas')->with('success', 'berhasil masukan data');
+        }
     }
-    public function fakultasUpdate(){}
 }
