@@ -6,6 +6,16 @@
             {{ session('success') }}
         </div>
     @endif
+    @if (session('duplicate'))
+        <div class="text-red-600">
+            {{ session('duplicate') }}
+        </div>
+    @endif
+    @if (session('duplicateEdit'))
+        <div class="text-red-600">
+            {{ session('duplicateEdit') }}
+        </div>
+    @endif
     {{-- form untuk input data --}}
     <h1>Input Fakultas</h1>
     <form action="{{ route('fakultasAdd') }}" method="post">
