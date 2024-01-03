@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 // admin
 use App\Http\Controllers\admin\fakultasController;
 use App\Http\Controllers\admin\prodiController;
-
+use App\Http\Controllers\admin\bukuController;
 // user
 use App\Http\Controllers\auth\loginController;
 
@@ -32,3 +32,11 @@ Route::post('/prodi-Add',[prodiController::class,'prodiAdd'])->name('prodiAdd');
 Route::get('/prodi-Delete/{id}',[prodiController::class,'prodiDelete'])->name('prodiDelete');
 Route::get('/prodi-Edit/{id}',[prodiController::class,'prodiEdit'])->name('prodiEdit');
 Route::post('/prodi-Update/{id}',[prodiController::class,'prodiUpdate'])->name('prodiUpdate');
+
+
+// buku
+Route::get('/buku',[bukuController::class,'bukuRead'])->name('bukuRead');
+Route::post('/buku-Add',[bukuController::class,'bukuAdd'])->name('bukuAdd');
+Route::get('/buku-Delete/{id}',[bukuController::class,'bukuDelete'])->name('bukuDelete');
+Route::get('/buku-Edit/{id}',[bukuController::class,'bukuEdit'])->name('bukuEdit');
+Route::post('/buku-Update/{id}',[bukuController::class,'bukuUpdate'])->name('bukuUpdate');

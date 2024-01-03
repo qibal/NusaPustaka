@@ -58,21 +58,20 @@ class fakultasController extends Controller
     }
     public function fakultasUpdate(Request $request, $id)
     {
-        dd($request);
-        // $validate = $request->validate([
-        //     'nama_fakultas' => 'required'
-        // ]);
-        // $fakultas = fakultas::where('nama_fakultas', $request->get('nama_fakultas'))->first();
-        // if ($fakultas !== null) {
-        //     return back()->with('duplicateEdit', 'nama fakultas' . $request->get('nama_fakultas') . ' sudah ada');
-        // } else {
-        //     $input = fakultas::find($id);
-        //     $input->nama_fakultas = $request->nama_fakultas;
-        //     $input->update();
+        $validate = $request->validate([
+            'nama_fakultas' => 'required'
+        ]);
+        $fakultas = fakultas::where('nama_fakultas', $request->get('nama_fakultas'))->first();
+        if ($fakultas !== null) {
+            return back()->with('duplicateEdit', 'nama fakultas' . $request->get('nama_fakultas') . ' sudah ada');
+        } else {
+            $input = fakultas::find($id);
+            $input->nama_fakultas = $request->nama_fakultas;
+            $input->update();
 
-        //     if ($input) {
-        //         return redirect('/fakultas')->with('success', 'berhasil masukan data');
-        //     }
-        // }
+            if ($input) {
+                return redirect('/fakultas')->with('success', 'berhasil masukan data');
+            }
+        }
     }
 }
