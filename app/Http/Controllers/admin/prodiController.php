@@ -47,7 +47,7 @@ class prodiController extends Controller
         $prodiEdit = prodi::find($id);
         $fakultases = fakultas::all();
 
-        if ($prodiEdit) {
+        if ($prodiEdit && $fakultases) {
             # code...
             return view('admin.ManajemenBuku.Prodi.ProdiEdit', compact('prodiEdit','fakultases'));
         }
@@ -58,18 +58,19 @@ class prodiController extends Controller
             'nama_fakultas' => 'required',
             'nama_prodi' => 'required'
         ]);
-        $fakultas = fakultas::where('nama_fakultas', $request->get('nama_fakultas'))->first();
+
+        $prodi = prodi::where('nama_prodi', $request->get('nama_prodi'))->first();
 
 
-        if ($fakultas !== null) {
-            return back()->with('duplicateEdit', 'nama fakultas' . $request->get('nama_fakultas') . ' sudah ada');
+        if ($prodi !== null) {
+            return back()->with('duplicateEdit', 'nama prodi' . $request->get('nama_prodi') . ' sudah ada');
         } else {
-            $input = fakultas::find($id);
-            $input->nama_fakultas = $request->nama_fakultas;
+            $input = prodi::find($id);
+            $input->nama_prodi = $request->nama_prodi;
             $input->update();
 
             if ($input) {
-                return redirect('/fakultas')->with('success', 'berhasil masukan data');
+                return redirect('/prodi')->with('success', 'berhasil masukan prodis');
             }
         }
     }

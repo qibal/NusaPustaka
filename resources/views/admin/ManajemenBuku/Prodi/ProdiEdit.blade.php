@@ -23,10 +23,10 @@
         </select>
 
         <br>
-        <label for="nama_fakultas">Nama prodi:</label><br>
-        <input type="text" name="nama_fakultas" id="nama_fakultas" class="border border-black" placeholder="nama fakultas"
+        <label for="nama_prodi">Nama prodi:</label><br>
+        <input type="text" name="nama_prodi" id="nama_prodi" class="border border-black" placeholder="nama prodi"
             value="{{ $prodiEdit->nama_prodi }}">
-        @error('nama_fakultas')
+        @error('nama_prodi')
             <div class="text-red-500">{{ $message }}</div>
         @enderror
 
