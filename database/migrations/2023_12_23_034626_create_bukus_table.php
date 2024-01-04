@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('penulis');
             $table->string('penerbit');
             $table->year('tahun_terbit');
-            $table->integer('fakultas_id');
-            $table->integer('prodi_id');
-            $table->integer('kelas_id');
-            $table->integer('kategori_id');
-            $table->integer('rak_buku_id');
-            $table->string('nomor_buku');
+            $table->integer('nama_fakultas');
+            $table->integer('nama_prodi');
+            $table->string('kelas');
+            $table->integer('kategori_buku');
+            $table->string('rak_buku');
+            $table->integer('kode_buku');
             $table->timestamps();
         });
     }

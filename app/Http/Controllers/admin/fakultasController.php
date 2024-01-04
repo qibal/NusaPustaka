@@ -21,16 +21,22 @@ class fakultasController extends Controller
     }
     public function fakultasAdd(Request $request)
     {
+        // validasi jangan kosong
         $validate = $request->validate([
             'nama_fakultas' => 'required'
         ]);
+        // validasi redudansi data
+        $fakultas = fakultas::where('nama_fakultas', $request->get('nama_fakultas'))->first();
+        if ($fakultas !== null) {
+            return back()->with('duplicate', 'nama fakultas' . $request->get('nama_fakultas') . ' sudah ada');
+        } else {
+            $input = new fakultas();
+            $input->nama_fakultas = $request->nama_fakultas;
+            $input->save();
 
-        $input = new fakultas();
-        $input->nama_fakultas = $request->nama_fakultas;
-        $input->save();
-
-        if ($input) {
-            return redirect()->back()->with('success', 'berhasil masukan data');
+            if ($input) {
+                return redirect()->back()->with('success', 'berhasil masukan data');
+            }
         }
     }
     public function fakultasDelete($id)
@@ -42,27 +48,30 @@ class fakultasController extends Controller
             return redirect()->back()->with('success', 'berhasil hapus data');
         }
     }
-    public function fakultasEdit( $id)
+    public function fakultasEdit($id)
     {
-        $fakultasEdit=fakultas::find($id);
-        if ( $fakultasEdit) {
+        $fakultasEdit = fakultas::find($id);
+        if ($fakultasEdit) {
             # code...
-            return view('admin.ManajemenBuku.fakultas.EditFakultas',compact('fakultasEdit'));
+            return view('admin.ManajemenBuku.fakultas.EditFakultas', compact('fakultasEdit'));
         }
-
     }
     public function fakultasUpdate(Request $request, $id)
     {
         $validate = $request->validate([
             'nama_fakultas' => 'required'
         ]);
+        $fakultas = fakultas::where('nama_fakultas', $request->get('nama_fakultas'))->first();
+        if ($fakultas !== null) {
+            return back()->with('duplicateEdit', 'nama fakultas' . $request->get('nama_fakultas') . ' sudah ada');
+        } else {
+            $input = fakultas::find($id);
+            $input->nama_fakultas = $request->nama_fakultas;
+            $input->update();
 
-        $input = fakultas::find($id);
-        $input->nama_fakultas = $request->nama_fakultas;
-        $input->update();
-
-        if ($input) {
-            return redirect('/fakultas')->with('success', 'berhasil masukan data');
+            if ($input) {
+                return redirect('/fakultas')->with('success', 'berhasil masukan data');
+            }
         }
     }
 }

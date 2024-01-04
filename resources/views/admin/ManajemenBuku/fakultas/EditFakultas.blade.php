@@ -6,6 +6,11 @@
             {{ session('success') }}
         </div>
     @endif
+    @if (session('duplicate'))
+        <div class="text-red-600">
+            {{ session('duplicate') }}
+        </div>
+    @endif
     {{-- form untuk edit data --}}
     <h1>update Fakultas</h1>
     <form action="{{ url('/fakultas-Update/'.$fakultasEdit->id) }}" method="post">
