@@ -8,6 +8,8 @@ use App\Http\Controllers\admin\fakultasController;
 
 // user
 use App\Http\Controllers\auth\loginController;
+use App\Http\Controllers\user\keranjangController;
+
 
 Route::get('/', function () {
     return view('user.HomeUser');
@@ -23,3 +25,6 @@ Route::post('/fakultas-Update/{id}',[fakultasController::class,'fakultasUpdate']
 
 // user login
 Route::get('/login',[loginController::class,'login'])->name('login');
+Route::get('/KeranjangPeminjaman',[keranjangController::class,'Keranjang'])->name('KeranjangPeminjaman');
+
+
