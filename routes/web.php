@@ -9,6 +9,8 @@ use App\Http\Controllers\admin\prodiController;
 use App\Http\Controllers\admin\bukuController;
 // user
 use App\Http\Controllers\auth\loginController;
+use App\Http\Controllers\user\keranjangController;
+
 
 Route::get('/', function () {
     return view('user.HomeUser');
@@ -24,6 +26,11 @@ Route::post('/fakultas-Update/{id}',[fakultasController::class,'fakultasUpdate']
 
 // user login
 Route::get('/login',[loginController::class,'login'])->name('login');
+<<<<<<< HEAD
+Route::get('/KeranjangPeminjaman',[keranjangController::class,'Keranjang'])->name('KeranjangPeminjaman');
+
+
+=======
 
 
 // prodi
@@ -40,3 +47,4 @@ Route::post('/buku-Add',[bukuController::class,'bukuAdd'])->name('bukuAdd');
 Route::get('/buku-Delete/{id}',[bukuController::class,'bukuDelete'])->name('bukuDelete');
 Route::get('/buku-Edit/{id}',[bukuController::class,'bukuEdit'])->name('bukuEdit');
 Route::post('/buku-Update/{id}',[bukuController::class,'bukuUpdate'])->name('bukuUpdate');
+>>>>>>> 60923f7cc9a51397f7b40647c50959ec38c100ad
