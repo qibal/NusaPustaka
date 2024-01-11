@@ -1,5 +1,5 @@
 @extends('user.HomeUser')
-@section('login')
+@section('layoutUser')
 
 @endsection
         <div class="lg:flex">
@@ -18,7 +18,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <div class="text-2xl text-indigo-800 tracking-wide ml-2 font-semibold">blockify</div>
+                        <div class="text-2xl text-indigo-800 tracking-wide ml-2 font-semibold">Nusa Pustaka</div>
                     </div>
                 </div>
                 <div class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
@@ -52,9 +52,7 @@
                                 </button>
                             </div>
                         </form>
-                        <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                            Don't have an account ? <a class="cursor-pointer text-indigo-600 hover:text-indigo-800">Sign up</a>
-                        </div>
+
                     </div>
                 </div>
             </div>
