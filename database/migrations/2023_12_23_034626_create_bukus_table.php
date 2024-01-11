@@ -18,13 +18,14 @@ return new class extends Migration
             $table->string('judul_buku');
             $table->string('penulis');
             $table->string('penerbit');
-            $table->year('tahun_terbit');
-            $table->integer('nama_fakultas');
-            $table->integer('nama_prodi');
+            $table->integer('tahun_terbit');
+            $table->string('nama_fakultas');
+            $table->string('nama_prodi');
             $table->string('kelas');
-            $table->integer('kategori_buku');
+            $table->string('kategori_buku');
             $table->string('rak_buku');
-            $table->integer('kode_buku');
+            $table->string('kode_buku');
+            $table->string('gambar');
             $table->timestamps();
         });
     }
