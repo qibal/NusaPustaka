@@ -5,11 +5,10 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class loginController extends Controller
+class signUp extends Controller
 {
-    //
-    public function login()
+    public function signUp()
     {
-        return view('Auth.login');
+        return view('Auth.signUp');
     }
 }

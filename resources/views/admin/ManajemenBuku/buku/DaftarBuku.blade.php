@@ -81,6 +81,7 @@
             <select name="nama_prodi" id="nama_prodi">
                 @foreach ($prodises as $prodi)
                     <option value="{{ $prodi->nama_prodi }}">{{ $prodi->nama_prodi }}</option>
+                    < value="">bahasa
                 @endforeach
             </select>
             @error('nama_prodi')
