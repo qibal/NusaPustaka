@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('kategori_buku_id');
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 class loginController extends Controller
 {
     //
-    public function login()
+    public function loginUser()
     {
-        return view('Auth.login');
+        return view('Auth.user.loginUser');
+    }
+    public function loginAdmin()
+    {
+        return view('Auth.admin.loginAdmin');
     }
 }

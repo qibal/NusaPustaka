@@ -17,12 +17,13 @@
                     xl:text-bold">
                     Log in</h2>
                 <div class="mt-12">
+                    {{-- form login --}}
                     <form>
                         <div>
-                            <div class="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
+                            <div class="text-sm font-bold text-gray-700 tracking-wide">User Name</div>
                             <input
                                 class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-                                type="" placeholder="mike@gmail.com">
+                                type="" placeholder="12345678">
                         </div>
                         <div class="mt-8">
                             <div class="flex justify-between items-center">
@@ -39,7 +40,7 @@
                             </div>
                             <input
                                 class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-                                type="" placeholder="Enter your password">
+                                type="" placeholder="password">
                         </div>
                         <div class="mt-10">
                             <button

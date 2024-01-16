@@ -8,6 +8,6 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    @yield('fakultas')
+    @yield('Admin')
 </body>
 </html>

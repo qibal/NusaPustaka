@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin\ManajemenBuku;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,8 +11,10 @@ use App\Models\kelas;
 use App\Models\prodi;
 use App\Models\rakBuku;
 
-class bukuController extends Controller
+
+class BukuController extends Controller
 {
+
     public function bukuRead()
     {
         $bukuses = buku::all();

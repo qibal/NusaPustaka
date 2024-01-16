@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Mahasiswas extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -20,12 +20,11 @@ class User extends Authenticatable
     protected $fillable = [
         'nama_mahasiswa',
         'npm',
-        'fakultas_id',
-        'prodi_id',
-        'kelas_id',
+        'fakultas',
+        'prodi',
+        'kelas',
         'email',
         'nomer_hp',
-        'password',
     ];
 
     /**
@@ -34,7 +33,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'NPM',
         'remember_token',
     ];
 
@@ -46,15 +45,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-
-    public function fakultas(){
-        $this->belongsTo(fakultas::class);
-    }
-    public function prodi(){
-        $this->belongsTo(prodi::class);
-    }
-    public function kelas(){
-        $this->belongsTo(kelas::class);
-    }
 }
