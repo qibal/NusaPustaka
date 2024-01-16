@@ -20,7 +20,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <form method="POST" action="{{ url('/registerMahasiswa-Update/'.$Mahasiswases->id) }}">
+            <form method="POST" action="{{ url('/registerMahasiswa-Update/'.Crypt::encrypt($Mahasiswases->id)) }}">
                 @csrf
                 {{-- nama maahsiwa --}}
                 <div class="mb-4">

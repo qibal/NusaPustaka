@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('kelas');
             $table->string('email');
             $table->string('nomer_hp',12);
+            $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

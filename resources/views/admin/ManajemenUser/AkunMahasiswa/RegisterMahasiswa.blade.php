@@ -17,6 +17,7 @@
                         <th class="border p-2">Kelas</th>
                         <th class="border p-2">Email</th>
                         <th class="border p-2">Nomer HP</th>
+                        <th class="border p-2">Password</th>
                         <th class="border p-2"></th>
                     </tr>
                 </thead>
@@ -34,15 +35,16 @@
                             <td class="border p-2">{{ $mahasiswa->kelas }}</td>
                             <td class="border p-2">{{ $mahasiswa->email }}</td>
                             <td class="border p-2">{{ $mahasiswa->nomer_hp }}</td>
+                            <td class="border p-2">{{ $mahasiswa->password }}</td>
                             <td class="border p-2">
                                 <!-- Edit Button -->
-                                <a href="{{ url('/registerMahasiswa-Edit/'.$mahasiswa->id) }}"
+                                <a href="{{ url('/registerMahasiswa-Edit/'.Crypt::encrypt($mahasiswa->id)) }}"
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 mx-1 rounded">
                                     Edit
                                 </a>
 
                                 <!-- Delete Button -->
-                                <a href="{{ url('/registerMahasiswa-Delete/'.$mahasiswa->id) }}"
+                                <a href="{{ url('/registerMahasiswa-Delete/'.Crypt::encrypt($mahasiswa->id)) }}"
                                     class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
                                     Delete
                                 </a>
@@ -73,6 +75,11 @@
             @if (session('success'))
                 <div  class="text-green-600 mb-4">
                     {{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div  class="text-green-600 mb-4">
+                    {{ session('error') }}
                 </div>
             @endif
             <form method="POST" action="{{ route('registerMahasiswaAdd') }}">
