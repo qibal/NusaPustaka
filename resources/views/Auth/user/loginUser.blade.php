@@ -18,12 +18,23 @@
                     Log in</h2>
                 <div class="mt-12">
                     {{-- form login --}}
-                    <form>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form method="POST" action="{{ route('loginMahasiswa') }}">
+                        @csrf
                         <div>
                             <div class="text-sm font-bold text-gray-700 tracking-wide">User Name</div>
                             <input
                                 class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-                                type="" placeholder="12345678">
+                                type="" placeholder="12345678" name="npm" id="npm">
+
                         </div>
                         <div class="mt-8">
                             <div class="flex justify-between items-center">
@@ -40,10 +51,13 @@
                             </div>
                             <input
                                 class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-                                type="" placeholder="password">
+                                type="" placeholder="password" name="password" id="password">
+                                @error('password')
+                                <div class="text-red-500">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mt-10">
-                            <button
+                            <button type="submit"
                                 class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
                                 shadow-lg">

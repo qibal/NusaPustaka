@@ -35,7 +35,7 @@
                             <td class="border p-2">{{ $mahasiswa->kelas }}</td>
                             <td class="border p-2">{{ $mahasiswa->email }}</td>
                             <td class="border p-2">{{ $mahasiswa->nomer_hp }}</td>
-                            <td class="border p-2">{{ $mahasiswa->password }}</td>
+                            <td class="border p-2">{{Str::limit( $mahasiswa->password, 10, '..') }}</td>
                             <td class="border p-2">
                                 <!-- Edit Button -->
                                 <a href="{{ url('/registerMahasiswa-Edit/'.Crypt::encrypt($mahasiswa->id)) }}"

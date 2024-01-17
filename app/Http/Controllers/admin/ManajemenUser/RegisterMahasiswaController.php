@@ -14,6 +14,7 @@ use App\Models\Mahasiswas;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterMahasiswaController extends Controller
 {
@@ -27,10 +28,10 @@ class RegisterMahasiswaController extends Controller
         $kelases = kelas::all();
 
         // decrypt password untuk semmua data agar passwordnya di terjemahkan dulu
-        $Mahasiswases->transform(function ($mahasiswa) {
-            $mahasiswa->password = decrypt($mahasiswa->password);
-            return $mahasiswa;
-        });
+        // $Mahasiswases->transform(function ($mahasiswa) {
+        //     $mahasiswa->password = decrypt($mahasiswa->password);
+        //     return $mahasiswa;
+        // });
 
         return view('admin.ManajemenUser.AkunMahasiswa.RegisterMahasiswa', compact('Mahasiswases', 'fakultases', 'prodises', 'kelases'));
     }
@@ -57,7 +58,7 @@ class RegisterMahasiswaController extends Controller
         $input->kelas = $request->kelas;
         $input->email = $request->email;
         $input->nomer_hp = $request->nomer_hp;
-        $input->password = encrypt($request->npm);
+        $input->password =Hash::make($request->npm);
         $input->save();
 
         if ($input) {
